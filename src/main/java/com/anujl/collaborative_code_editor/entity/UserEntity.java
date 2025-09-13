@@ -1,11 +1,11 @@
 package com.anujl.collaborative_code_editor.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
-@Entity
+
 
 @NoArgsConstructor
 @AllArgsConstructor
