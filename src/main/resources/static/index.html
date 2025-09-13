@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborative Code Editor - WebSocket Test</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .message-log {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-6 flex items-center justify-center min-h-screen">
+<div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-2xl">
+    <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">WebSocket Test Client</h1>
+
+    <!-- Connection Settings -->
+    <div class="mb-6 border p-4 rounded-md bg-gray-50">
+        <h2 class="text-xl font-semibold text-gray-700 mb-4">Connection Settings</h2>
+        <div class="mb-4">
+            <label for="websocketUrl" class="block text-sm font-medium text-gray-700">WebSocket URL (STOMP Endpoint):</label>
+            <!-- Changed ws:// to http:// for SockJS compatibility -->
+            <input type="text" id="websocketUrl" value="http://localhost:8080/ws"
+                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+        </div>
+        <div class="flex space-x-4 mb-4">
+            <div class="w-1/2">
+                <label for="username" class="block text-sm font-medium text-gray-700">Username:</label>
+                <input type="text" id="username" value="admin"
+                       class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            </div>
+            <div class="w-1/2">
+                <label for="password" class="block text-sm font-medium text-gray-700">Password:</label>
+                <input type="password" id="password" value="admin"
+                       class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            </div>
+        </div>
+        <div class="flex space-x-4">
+            <button id="connectButton"
+                    class="flex-1 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                Connect
+            </button>
+            <button id="disconnectButton" disabled
+                    class="flex-1 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-gray-700 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                Disconnect
+            </button>
+        </div>
+        <p class="mt-4 text-sm text-gray-600">Status: <span id="status" class="font-semibold text-red-600">Disconnected</span></p>
+    </div>
+
+    <!-- Document and Message Sending -->
+    <div class="mb-6 border p-4 rounded-md bg-gray-50">
+        <h2 class="text-xl font-semibold text-gray-700 mb-4">Document Operations</h2>
+        <div class="mb-4">
+            <label for="docId" class="block text-sm font-medium text-gray-700">Document ID:</label>
+            <input type="text" id="docId" value="test-doc-1"
+                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+        </div>
+        <div class="mb-4 grid grid-cols-3 gap-4">
+            <div>
+                <label for="editStart" class="block text-sm font-medium text-gray-700">Edit Start:</label>
+                <input type="number" id="editStart" value="0"
+                       class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            </div>
+            <div>
+                <label for="editLength" class="block text-sm font-medium text-gray-700">Edit Length:</label>
+                <input type="number" id="editLength" value="0"
+                       class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            </div>
+            <div>
+                <label for="editText" class="block text-sm font-medium text-gray-700">Edit Text (to send):</label>
+                <input type="text" id="editText" value="Initial text."
+                       class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+            </div>
+        </div>
+        <button id="sendEditButton" disabled
+                class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+            Send Edit Message
+        </button>
+    </div>
+
+    <!-- Live Document Content -->
+    <div class="mb-6 border p-4 rounded-md bg-gray-50">
+        <h2 class="text-xl font-semibold text-gray-700 mb-4">Live Document Content</h2>
+        <textarea id="liveDocumentContent" rows="8" readonly
+                  class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-100 text-gray-800 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"></textarea>
+    </div>
+
+    <!-- Message Log -->
+    <div class="border p-4 rounded-md bg-gray-50">
+        <h2 class="text-xl font-semibold text-gray-700 mb-4">Message Log</h2>
+        <div id="messageLog" class="message-log bg-white p-3 rounded-md border border-gray-300 text-sm text-gray-800">
+            <!-- Messages will appear here -->
+        </div>
+        <button id="clearLogButton"
+                class="mt-4 w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-gray-700 bg-red-200 hover:bg-red-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+            Clear Log
+        </button>
+    </div>
+</div>
+
+<!-- SockJS and Stomp.js Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.0/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+
+<script>
+    let stompClient = null;
+    let documentId = document.getElementById('docId').value;
+    let messageVersion = 0; // Keep track of the client's expected version for optimistic locking
+
+    // Generate a simple unique client ID for testing purposes
+    const clientId = 'client-' + Math.random().toString(36).substring(2, 15);
+
+    const websocketUrlInput = document.getElementById('websocketUrl');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const connectButton = document.getElementById('connectButton');
+    const disconnectButton = document.getElementById('disconnectButton');
+    const statusSpan = document.getElementById('status');
+    const docIdInput = document.getElementById('docId');
+    const editStartInput = document.getElementById('editStart');
+    const editLengthInput = document.getElementById('editLength');
+    const editTextInput = document.getElementById('editText');
+    const sendEditButton = document.getElementById('sendEditButton');
+    const messageLog = document.getElementById('messageLog');
+    const clearLogButton = document.getElementById('clearLogButton');
+    const liveDocumentContentArea = document.getElementById('liveDocumentContent'); // New element reference
+
+    // Function to update UI based on connection status
+    function setConnected(connected) {
+        connectButton.disabled = connected;
+        disconnectButton.disabled = !connected;
+        sendEditButton.disabled = !connected;
+        statusSpan.textContent = connected ? 'Connected' : 'Disconnected';
+        statusSpan.className = connected ? 'font-semibold text-green-600' : 'font-semibold text-red-600';
+        docIdInput.disabled = connected; // Disable docId input once connected to a specific document
+    }
+
+    // Function to append messages to the log
+    function logMessage(prefix, message, type = 'info') {
+        const time = new Date().toLocaleTimeString();
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('mb-1', 'p-1', 'rounded-sm');
+        let colorClass = 'text-gray-800';
+        if (type === 'sent') colorClass = 'bg-blue-50 text-blue-800';
+        else if (type === 'received') colorClass = 'bg-green-50 text-green-800';
+        else if (type === 'error') colorClass = 'bg-red-50 text-red-800';
+
+        // CORRECTED: Split the colorClass string into individual class names
+        const classesToAdd = colorClass.split(' ');
+        messageElement.classList.add(...classesToAdd);
+
+        messageElement.innerHTML = `<span class="font-bold mr-2">${time} [${prefix}]</span> <pre class="inline">${JSON.stringify(message, null, 2)}</pre>`;
+        messageLog.appendChild(messageElement);
+        messageLog.scrollTop = messageLog.scrollHeight; // Scroll to bottom
+    }
+
+    // Connect function
+    connectButton.addEventListener('click', () => {
+        documentId = docIdInput.value;
+        const websocketUrl = websocketUrlInput.value;
+        const username = usernameInput.value;
+        const password = passwordInput.value;
+
+        // Basic Auth credentials (Base64 encoded)
+        const authString = btoa(`${username}:${password}`); // btoa() performs Base64 encoding
+        const headers = {
+            'Authorization': `Basic ${authString}`
+        };
+
+        const socket = new SockJS(websocketUrl);
+        stompClient = Stomp.over(socket);
+
+        stompClient.connect(headers, (frame) => {
+            setConnected(true);
+            logMessage('Connected', frame.headers);
+
+            // Subscribe to document topic for Acks
+            stompClient.subscribe(`/topic/doc/${documentId}`, (message) => {
+                const ack = JSON.parse(message.body);
+                logMessage('Received ACK', ack, 'received');
+                if (ack.status === "ok" && ack.version) {
+                    messageVersion = ack.version; // Update client's expected version
+                    // Optional: update live content here if ACK contains the full new state,
+                    // otherwise rely on the /snapshot topic
+                    if (ack.snapshot && ack.snapshot.text) { // Added check for snapshot in ACK
+                         liveDocumentContentArea.value = ack.snapshot.text;
+                         editTextInput.value = ack.snapshot.text; // Also update edit input
+                    }
+                } else if (ack.status === "resync" && ack.snapshot) {
+                    // Server requested resync due to version mismatch
+                    liveDocumentContentArea.value = ack.snapshot.text; // Update live content with server's text
+                    editTextInput.value = ack.snapshot.text; // Also update edit input
+                    messageVersion = ack.snapshot.version; // Update client's expected version
+                    logMessage('RESYNC REQUIRED', 'Client-side content updated to server snapshot.', 'error');
+                }
+            });
+
+            // Subscribe to document snapshot topic for full updates
+            stompClient.subscribe(`/topic/doc/${documentId}/snapshot`, (snapshot) => {
+                const docSnapshot = JSON.parse(snapshot.body);
+                logMessage('Received SNAPSHOT', docSnapshot, 'received');
+                liveDocumentContentArea.value = docSnapshot.text; // Update live content area
+                editTextInput.value = docSnapshot.text; // Keep edit input in sync with live content
+                messageVersion = docSnapshot.version; // Update client's expected version
+            });
+
+        }, (error) => {
+            logMessage('Connection Error', error, 'error');
+            setConnected(false);
+        });
+    });
+
+    // Disconnect function
+    disconnectButton.addEventListener('click', () => {
+        if (stompClient !== null) {
+            stompClient.disconnect(() => {
+                logMessage('Disconnected', 'Client disconnected from WebSocket.');
+                setConnected(false);
+                liveDocumentContentArea.value = ''; // Clear live content on disconnect
+            });
+        }
+    });
+
+    // Send Edit Message function
+    sendEditButton.addEventListener('click', () => {
+        if (stompClient && stompClient.connected) {
+            const editStart = parseInt(editStartInput.value);
+            const editLength = parseInt(editLengthInput.value);
+            const editText = editTextInput.value;
+
+            // Determine operation type based on input
+            let operationType;
+            if (editLength > 0 && editText) {
+                operationType = "replace";
+            } else if (editLength > 0) {
+                operationType = "delete";
+            } else {
+                operationType = "insert";
+            }
+
+            // Construct an operation object
+            const op = {
+                type: operationType,
+                index: editStart
+            };
+
+            // Add text and length only if relevant to the operation type
+            if (operationType === "insert" || operationType === "replace") {
+                op.text = editText;
+            }
+            if (operationType === "delete" || operationType === "replace") {
+                op.length = editLength;
+            }
+
+            const editMessage = {
+                id: `client-edit-${Date.now()}`, // Unique ID for the edit operation
+                clientId: clientId, // Add clientId here
+                docId: documentId, // Add docId here
+                baseVersion: messageVersion, // Server expects baseVersion
+                ops: [op] // Array of operations
+            };
+
+            const destination = `/app/doc/${documentId}/edit`;
+            stompClient.send(destination, {}, JSON.stringify(editMessage));
+            logMessage('Sent Edit', editMessage, 'sent');
+
+            // Optimistically update live content and version before server response
+            // This is a simple optimistic update. A real-world app would apply
+            // the patch and handle potential rollbacks.
+            // For this test, we are relying on snapshot updates to correct the live view
+            // messageVersion++; // Only increment version on successful server ack
+        } else {
+            logMessage('Error', 'Not connected to WebSocket server.', 'error');
+        }
+    });
+
+    // Clear Log
+    clearLogButton.addEventListener('click', () => {
+        messageLog.innerHTML = '';
+    });
+
+    // Initial UI state
+    setConnected(false);
+</script>
+</body>
+</html>
