@@ -13,10 +13,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-
+import java.util.*;
 
 
 @NoArgsConstructor
@@ -38,18 +35,24 @@ public class UserEntity implements UserDetails {
     private  String email;
     @NotBlank
     private String password;
-    private ArrayList<String> projects;
-    private ArrayList<String> ref_projects;
+    private List<String> projects= new ArrayList<>();
+
+    private Set<String> ref_projects= new HashSet<>();
 
     @Override
     public String toString() {
+        StringBuilder sb= new StringBuilder();
+        sb.append("Projects: ");
+        for(String p:projects){
+            sb.append(p).append(", ");
+        }
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 "email='" + email + '\'' +
                 ", lastLoginTime=" + lastLoginTime +
-                '}';
+                '}'+sb.toString();
     }
 
     private LocalDateTime lastLoginTime;
@@ -94,19 +97,19 @@ public class UserEntity implements UserDetails {
         this.email = email;
     }
 
-    public ArrayList<String> getProjects() {
+    public List<String> getProjects() {
         return projects;
     }
 
-    public void setProjects(ArrayList<String> projects) {
+    public void setProjects(List<String> projects) {
         this.projects = projects;
     }
 
-    public ArrayList<String> getRef_projects() {
+    public Set<String> getRefProjects() {
         return ref_projects;
     }
 
-    public void setRef_projects(ArrayList<String> ref_projects) {
+    public void setRefProjects(Set<String> ref_projects) {
         this.ref_projects = ref_projects;
     }
 }

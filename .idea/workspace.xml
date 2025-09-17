@@ -4,47 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb20b13-be78-4b51-85f5-0ee42eff6c79" name="Changes" comment="init">
-      <change afterPath="$PROJECT_DIR$/../frontend-angular/collaborative-code-editor/node_modules/iconv-lite/.idea/iconv-lite.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend-angular/collaborative-code-editor/node_modules/ordered-binary/.idea/ordered-binary.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="efb20b13-be78-4b51-85f5-0ee42eff6c79" name="Changes" comment="basic cleaning">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/dto/ProjectShareDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/CodeEditorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/CodeEditorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/entity/ProjectEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/entity/ProjectEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/entity/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/CollaborativeCodeEditorApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/GlobalExceptionHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/config/Config.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/config/CorsConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/config/JwtFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/config/SecurityConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/config/WebSocketConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/controller/CodeEditorController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/controller/DocController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/controller/HomeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/controller/ProjectController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/controller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/dto/CodeRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/dto/ProjectDTO$ProjectDTOBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/dto/ProjectDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/dto/UserDataDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/dto/UserLoginDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/dto/UserMainDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/dto/UserResponseDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/dto/wc/CodeChange.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/dto/wc/DocSnapshot.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/dto/wc/EditMessage$Op.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/dto/wc/EditMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/dto/wc/ServerAck.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/entity/ProjectEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/entity/UserEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/repository/ProjectRepo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/repository/UserRepo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/service/CustomUserDetailService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/service/DocumentService$DocState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/service/DocumentService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/service/JwtService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/service/ProjectService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/repository/ProjectRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/repository/ProjectRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/ProjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/CollaborativeCodeEditorApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/CollaborativeCodeEditorApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/controller/CodeEditorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/controller/CodeEditorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/controller/ProjectController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/controller/ProjectController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/entity/ProjectEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/entity/ProjectEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/entity/UserEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/entity/UserEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/repository/ProjectRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/repository/ProjectRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/service/ProjectService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/service/ProjectService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757749555346</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="basic cleaning">
+      <option name="closed" value="true" />
+      <created>1757752401145</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1757752401145</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -146,30 +133,70 @@
       <path value="$PROJECT_DIR$/../../.." />
     </ignored-roots>
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="basic cleaning" />
+    <option name="LAST_COMMIT_MESSAGE" value="basic cleaning" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java</url>
-          <line>32</line>
+          <line>36</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/ProjectService.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/ProjectService.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="7" />
+          <line>103</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/ProjectService.java</url>
+          <line>107</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/ProjectService.java</url>
+          <line>114</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/ProjectService.java</url>
+          <line>119</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/ProjectService.java</url>
+          <line>120</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java</url>
+          <line>153</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java</url>
+          <line>154</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java</url>
+          <line>34</line>
+          <properties class="com.anujl.collaborative_code_editor.controller.ProjectController" method="get">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -3,6 +3,7 @@ package com.anujl.collaborative_code_editor.controller;
 import java.util.List;
 
 import com.anujl.collaborative_code_editor.dto.wc.CodeChange;
+import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -16,7 +17,7 @@ public class CodeEditorController {
     @MessageMapping("/project/{projectId}/code")
     @SendTo("/topic/project/{projectId}/code")
 //    public String handleCodeChange(@Payload List<CodeChange> changes) {
-        public String handleCodeChange(@Payload String s) {
+        public String handleCodeChange(@DestinationVariable String projectId,@Payload String s) {
 
 //            for(CodeChange change:changes){
 //        if (!change.getRemovedText().isEmpty()) {
@@ -28,6 +29,8 @@ public class CodeEditorController {
 //        }
 //    }
 //        return sharedCode.toString();
+        System.out.println("Received code update for project " + projectId + ": " + s);
         return s+"Anuj";
     }
+
 }

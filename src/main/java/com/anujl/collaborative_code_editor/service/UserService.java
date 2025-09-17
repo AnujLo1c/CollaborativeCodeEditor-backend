@@ -5,8 +5,10 @@ import com.anujl.collaborative_code_editor.dto.UserLoginDto;
 import com.anujl.collaborative_code_editor.dto.UserResponseDTO;
 import com.anujl.collaborative_code_editor.entity.UserEntity;
 import com.anujl.collaborative_code_editor.repository.UserRepo;
+import com.anujl.collaborative_code_editor.dto.ProjectDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -16,9 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class UserService {
@@ -30,6 +30,9 @@ public class UserService {
     AuthenticationManager authenticationManager;
 @Autowired
 JwtService jwtService;
+@Autowired
+@Lazy
+ProjectService projectService;
 
 @Autowired
     ModelMapper modelMapper;
@@ -63,7 +66,8 @@ if(userEntity==null){
       return token;
   }
   else{
-      return "Invalid";
+
+      throw new RuntimeException("Invalid Login Credentials");
   }
     }
 
@@ -81,30 +85,46 @@ userRepo.findByUsername(jwtService.extractUsername(token))
         UserEntity userEntity= userRepo.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Username Not Exists"));
 userEntity.getProjects().add(projectId);
-        System.out.println(userEntity);
+        System.out.println(userEntity+"  user service "+projectId);
 userRepo.save(userEntity);
     }
     public void addRefProjectToUsername(String projectId, String username) {
         UserEntity userEntity= userRepo.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Username Not Exists"));
-        userEntity.getRef_projects()
+
+        userEntity.getRefProjects()
                 .add(projectId);
         userRepo.save(userEntity);
     }
-    public ArrayList<String> fetchProjectByUsername(String username){
+
+
+
+    public List<List<ProjectDTO>> fetchALLProjectByUsername(String username){
     UserEntity userEntity=userRepo.findByUsername(username)
             .orElseThrow(() -> new UsernameNotFoundException("Username Not Exists"));
-    return userEntity.getProjects();
-    }
-    public ArrayList<String> fetchRefProjectByUsername(String username){
-        UserEntity userEntity=userRepo.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Username Not Exists"));
-        return userEntity.getRef_projects();
+        System.out.println("fetching projects for user: "+username+" projects: ");
+List<ProjectDTO> projects=new ArrayList<>();
+        List<ProjectDTO> refProjects=new ArrayList<>();
+        for(String s:userEntity.getProjects()){
+         projectService.findById(s).ifPresent(p-> projects.add(modelMapper.map(p,ProjectDTO.class)));
+        }
+        for(String s:userEntity.getRefProjects()){
+            projectService.findById(s).ifPresent(p-> refProjects.add(modelMapper.map(p,ProjectDTO.class)));
+        }
+
+    return Arrays.asList(projects,refProjects);
     }
 
-    public UserDataDTO fetchProjectRefProjectByUsername(String username){
+
+    public Set<String> fetchRefProjectByUsername(String username){
         UserEntity userEntity=userRepo.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Username Not Exists"));
-        return new UserDataDTO(userEntity.getProjects(),userEntity.getRef_projects());
+        return userEntity.getRefProjects();
     }
+
+//    public UserDataDTO fetchProjectRefProjectByUsername(String username){
+//        UserEntity userEntity=userRepo.findByUsername(username)
+//                .orElseThrow(() -> new UsernameNotFoundException("Username Not Exists"));
+//        return new UserDataDTO(userEntity.getProjects(),userEntity.getRef_projects());
+//    }
 }

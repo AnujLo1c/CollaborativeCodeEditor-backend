@@ -6,7 +6,7 @@ import com.anujl.collaborative_code_editor.dto.UserMainDTO;
 import com.anujl.collaborative_code_editor.dto.UserResponseDTO;
 import com.anujl.collaborative_code_editor.entity.UserEntity;
 import com.anujl.collaborative_code_editor.service.UserService;
-
+import com.anujl.collaborative_code_editor.dto.ProjectDTO;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -60,19 +60,23 @@ public class UserController {
         return ResponseEntity.ok(
         ).build();
     }
+
+
     @GetMapping("/fetch-projects")
-    public ResponseEntity<Map<String, ArrayList<String>>> fetchProjects(@NotBlank String username){
-
-        return  ResponseEntity.ok(Map.of("projects", userService.fetchProjectByUsername(username)));
+    public ResponseEntity<List<List<ProjectDTO>>> fetchProjects(@RequestParam @NotBlank String username){
+        System.out.println("Fetching projects for user: " + username);
+        return  ResponseEntity.ok(userService.fetchALLProjectByUsername(username));
     }
-    @GetMapping("/fetch-ref-projects")
-    public ResponseEntity<Map<String, ArrayList<String>>> fetchRefProjects(@NotBlank String username){
 
-        return  ResponseEntity.ok(Map.of("refProjects", userService.fetchRefProjectByUsername(username)));
-    }
-    @GetMapping("/fetch-all-projects")
-    public ResponseEntity<Map<String, UserDataDTO>> fetchAllProjects(@NotBlank String username){
 
-        return  ResponseEntity.ok(Map.of("allProjects", userService.fetchProjectRefProjectByUsername(username)));
-    }
+//    @GetMapping("/fetch-ref-projects")
+//    public ResponseEntity<Map<String, ArrayList<String>>> fetchRefProjects(@NotBlank String username){
+//
+//        return  ResponseEntity.ok(Map.of("refProjects", userService.fetchRefProjectByUsername(username)));
+//    }
+//    @GetMapping("/fetch-all-projects")
+//    public ResponseEntity<Map<String, UserDataDTO>> fetchAllProjects(@NotBlank String username){
+//
+//        return  ResponseEntity.ok(Map.of("allProjects", userService.fetchProjectRefProjectByUsername(username)));
+//    }
 }

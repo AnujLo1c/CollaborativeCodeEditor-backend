@@ -1,7 +1,9 @@
 package com.anujl.collaborative_code_editor.controller;
 
+
 import com.anujl.collaborative_code_editor.dto.CodeRequest;
 import com.anujl.collaborative_code_editor.dto.ProjectDTO;
+import com.anujl.collaborative_code_editor.dto.ProjectShareDTO;
 import com.anujl.collaborative_code_editor.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,8 +33,8 @@ public class ProjectController {
     @GetMapping("/{id}")
 //    public Map<String, Object> get(@PathVariable String id) {
     public ProjectDTO get(@PathVariable String id) {
-        return projectService.findById(id)
-                .orElseThrow(() -> new RuntimeException("Not found"));
+        return projectService.findById(id).orElseThrow(() -> new RuntimeException("Project not found"))
+                ;
 
     //TODO:: make inuse true
 //        return Map.of(
@@ -145,5 +147,20 @@ map.put("output",output);
             }
         }
 
+        //shareable
+
+    @PostMapping("/share/{shareId}")
+    public ResponseEntity<Void> saveRefProject(@PathVariable String shareId,@RequestParam String username) {
+        projectService.saveRefProject(shareId,username);
+        System.out.println("Requested by: " + username);
+
+        return ResponseEntity.ok().build();
+    }
+    @PostMapping("/{projectId}/share")
+    public  ResponseEntity<Object> generateShareableLink(@PathVariable  String projectId){
+        String link=projectService.generateShareableLink(projectId);
+
+        return ResponseEntity.ok(Map.of("link",link));
+    }
 
 }
