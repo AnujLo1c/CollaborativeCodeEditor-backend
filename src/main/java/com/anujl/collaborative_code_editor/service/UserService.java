@@ -72,13 +72,13 @@ if(userEntity==null){
     }
 
     public void logout(String token) {
-userRepo.findByUsername(jwtService.extractUsername(token))
-        .ifPresent(user -> {
+        UserEntity user = userRepo.findByUsername(jwtService.extractUsername(token))
+                .orElseThrow(() -> new RuntimeException("Invalid token or user not found"));
 
-            System.out.println("User " + user.getUsername() + " logged out.");
+        System.out.println("User " + user.getUsername() + " logged out.");
         user.setLastLoginTime(LocalDateTime.now());
         userRepo.save(user);
-        });
+
     }
 
     public void addProjectToUsername(String projectId, String username) {

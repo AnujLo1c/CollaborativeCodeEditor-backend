@@ -45,23 +45,24 @@ public class JwtFilter extends OncePerRequestFilter {
 
         String requestPath = request.getServletPath();
 
-
+        System.out.println("Request Path: " + requestPath);
         if (requestPath.startsWith("/api/auth/register") || requestPath.startsWith("/api/auth/login")) {
             filterChain.doFilter(request, response);
             return;
         }
 
+        System.out.println("Auth Header: " + authHeader+"END");
 
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             token = authHeader.substring(7);
 
                 token = token.trim();
-
-            System.out.println(token);
+            System.out.println("Token:"+token);
             username = jwtService.extractUserName(token);
+
             issuedAt = jwtService.extractIssuedAt(token);
         }
-
+        System.out.println("Token2:"+token);
         if (issuedAt!=null && username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserEntity userEntity = userRepo.findByUsername(username)
                     .orElse(null);

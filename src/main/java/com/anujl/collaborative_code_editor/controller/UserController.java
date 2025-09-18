@@ -39,7 +39,7 @@ public class UserController {
     public ResponseEntity<String> logoutUser(@RequestBody Map<String,String> body){
         String token = body.get("token").trim();
 
-        userService.logout(token.replace(" ",""));
+        userService.logout(token);
         return ResponseEntity.ok("Success" );
     }
 

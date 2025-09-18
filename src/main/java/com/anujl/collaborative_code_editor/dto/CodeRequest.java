@@ -6,5 +6,5 @@ import lombok.Data;
 public class CodeRequest {
     private String language;
     private String code;
-
+private String input;
 }
