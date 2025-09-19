@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb20b13-be78-4b51-85f5-0ee42eff6c79" name="Changes" comment="execute updated">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+    <list default="true" id="efb20b13-be78-4b51-85f5-0ee42eff6c79" name="Changes" comment="deploy updates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/ProjectService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/controller/ProjectController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/controller/ProjectController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/service/ProjectService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/service/ProjectService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend-angular/collaborative-code-editor/node_modules/iconv-lite/.idea/iconv-lite.iml" beforeDir="false" />
@@ -140,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758186956434</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="deploy updates">
+      <option name="closed" value="true" />
+      <created>1758276651517</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1758276651517</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -151,7 +155,8 @@
     <MESSAGE value="basic cleaning" />
     <MESSAGE value="stable#1" />
     <MESSAGE value="execute updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="execute updated" />
+    <MESSAGE value="deploy updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="deploy updates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

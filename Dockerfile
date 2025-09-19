@@ -1,14 +1,13 @@
-# Use an official OpenJDK runtime as a parent image
-FROM eclipse-temurin:21-jdk-alpine
-
-# Set working directory
+# Step 1: Build JAR
+FROM maven:3.9.6-eclipse-temurin-21 AS builder
 WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
 
-# Copy Maven/Gradle build files and source
-COPY target/*.jar app.jar
+# Step 2: Run JAR
+FROM eclipse-temurin:21-jdk
+WORKDIR /app
+COPY --from=builder /app/target/*.jar app.jar
 
-# Expose port (same as Spring Boot)
 EXPOSE 8080
-
-# Run the jar
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]
