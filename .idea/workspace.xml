@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb20b13-be78-4b51-85f5-0ee42eff6c79" name="Changes" comment="stable#1">
+    <list default="true" id="efb20b13-be78-4b51-85f5-0ee42eff6c79" name="Changes" comment="execute updated">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/config/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/config/JwtFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/dto/CodeRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/dto/CodeRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/config/JwtFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/config/JwtFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/ProjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/controller/ProjectController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/controller/ProjectController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/service/ProjectService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/service/ProjectService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend-angular/collaborative-code-editor/node_modules/iconv-lite/.idea/iconv-lite.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +49,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -57,30 +60,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.CollaborativeCodeEditorApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/anujl/OneDrive/Desktop/JAVA/Springboot Projects/collaborative-code-editor-project/Backend-java/collaborative-code-editor&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.CollaborativeCodeEditorApplication.executor": "Run",
+    "Application.Main.executor": "Debug",
+    "Application.Unnamed.executor": "Run",
+    "Maven.collaborative-code-editor [clean,package].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/anujl/OneDrive/Desktop/JAVA/Springboot Projects/collaborative-code-editor-project/Backend-java/collaborative-code-editor",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.anujl.collaborative_code_editor.controller" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean package" />
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
@@ -123,7 +132,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758085209074</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="execute updated">
+      <option name="closed" value="true" />
+      <created>1758186956434</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1758186956434</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -133,7 +150,8 @@
     <MESSAGE value="init" />
     <MESSAGE value="basic cleaning" />
     <MESSAGE value="stable#1" />
-    <option name="LAST_COMMIT_MESSAGE" value="stable#1" />
+    <MESSAGE value="execute updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="execute updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -155,38 +173,43 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/ProjectService.java</url>
-          <line>103</line>
+          <line>117</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/ProjectService.java</url>
-          <line>107</line>
+          <line>121</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/ProjectService.java</url>
-          <line>114</line>
+          <line>128</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/ProjectService.java</url>
-          <line>119</line>
+          <line>133</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/ProjectService.java</url>
-          <line>120</line>
+          <line>134</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java</url>
-          <line>176</line>
+          <line>75</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java</url>
-          <line>177</line>
+          <line>76</line>
           <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java</url>
