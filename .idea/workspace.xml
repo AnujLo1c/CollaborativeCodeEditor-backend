@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb20b13-be78-4b51-85f5-0ee42eff6c79" name="Changes" comment="deploy updates 1">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="efb20b13-be78-4b51-85f5-0ee42eff6c79" name="Changes" comment="deploy updates 1.1">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/config/CorsConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/config/CorsConfiguration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -149,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758276941347</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="deploy updates 1.1">
+      <option name="closed" value="true" />
+      <created>1758354839469</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1758354839469</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -162,7 +169,8 @@
     <MESSAGE value="execute updated" />
     <MESSAGE value="deploy updates" />
     <MESSAGE value="deploy updates 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="deploy updates 1" />
+    <MESSAGE value="deploy updates 1.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="deploy updates 1.1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
