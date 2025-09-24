@@ -34,7 +34,7 @@ public class ProjectController {
     }
 
     @GetMapping("/{id}")
-//    public Map<String, Object> get(@PathVariable String id) {
+//    public Map<String, Object> getProjectById(@PathVariable String id) {
     public ProjectDTO get(@PathVariable String id) {
         return projectService.findById(id).orElseThrow(() -> new RuntimeException("Project not found"))
                 ;
@@ -51,11 +51,26 @@ public class ProjectController {
     }
 
 
-    @PutMapping("/{id}")
-    public ResponseEntity<String> update(@PathVariable String id, @RequestBody ProjectDTO updated) {
 
-        return ResponseEntity
-                .ok(projectService.update(id,updated));
+    @PostMapping("/{projectId}/save")
+    public ResponseEntity<?> saveProjectCode(
+            @PathVariable String projectId,
+            @RequestBody ProjectDTO projectDTO
+    ) {
+        try {
+            // Ensure projectId matches
+            if (!projectId.equals(projectDTO.getId())) {
+                return ResponseEntity.badRequest().body("Project ID mismatch");
+            }
+
+            // Save/update project in DB
+            projectService.update(projectDTO);
+
+            return ResponseEntity.ok("Project saved successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Failed to save project: " + e.getMessage());
+        }
     }
 
     @DeleteMapping("/{id}")

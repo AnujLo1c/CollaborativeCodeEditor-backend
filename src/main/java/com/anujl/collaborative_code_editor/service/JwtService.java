@@ -1,6 +1,7 @@
 package com.anujl.collaborative_code_editor.service;
 
 
+import com.anujl.collaborative_code_editor.Secret;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
@@ -22,7 +23,7 @@ public class JwtService {
 
 
     private final
-    String SECRET_KEY = "39U6iwk3lupY4Bb0y2SIrrJSj/uHlJ/m5+OLIUmLMJw=";
+    String SECRET_KEY = Secret.JWT_SECRET;
 //
 //    public JwtService() {
 //

@@ -4,8 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb20b13-be78-4b51-85f5-0ee42eff6c79" name="Changes" comment="deploy updates 1.22">
+    <list default="true" id="efb20b13-be78-4b51-85f5-0ee42eff6c79" name="Changes" comment="deploy updates 1.23">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/Secret.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/Secret.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/config/CorsConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/config/CorsConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/config/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/config/WebSocketConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/CodeEditorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/CodeEditorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/dto/wc/CodeChange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/dto/wc/CodeChange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/interceptor/AuthChannelInterceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/listener/ProjectWebSocketEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/listener/ProjectWebSocketEventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/ProjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/ProjectUserRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/ProjectUserRegistry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/config/CorsConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/config/CorsConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/config/WebSocketConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/config/WebSocketConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/controller/CodeEditorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/controller/CodeEditorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/controller/ProjectController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/controller/ProjectController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/dto/wc/CodeChange.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/dto/wc/CodeChange.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/service/JwtService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/service/JwtService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/service/ProjectService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anujl/collaborative_code_editor/service/ProjectService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,27 +73,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.CollaborativeCodeEditorApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.collaborative-code-editor [clean,package].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/anujl/OneDrive/Desktop/JAVA/Springboot Projects/collaborative-code-editor-project/Backend-java/collaborative-code-editor&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.CollaborativeCodeEditorApplication.executor": "Run",
+    "Application.Main.executor": "Debug",
+    "Application.Unnamed.executor": "Debug",
+    "Maven.collaborative-code-editor [clean,package].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.preview.features.used": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/anujl/OneDrive/Desktop/JAVA/Springboot Projects/collaborative-code-editor-project/Backend-java/collaborative-code-editor",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.anujl.collaborative_code_editor.controller" />
@@ -156,8 +178,27 @@
       <option name="project" value="LOCAL" />
       <updated>1758376788117</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="deploy updates 1.23">
+      <option name="closed" value="true" />
+      <created>1758377206106</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1758377206106</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
@@ -170,7 +211,8 @@
     <MESSAGE value="deploy updates" />
     <MESSAGE value="deploy updates 1" />
     <MESSAGE value="deploy updates 1.22" />
-    <option name="LAST_COMMIT_MESSAGE" value="deploy updates 1.22" />
+    <MESSAGE value="deploy updates 1.23" />
+    <option name="LAST_COMMIT_MESSAGE" value="deploy updates 1.23" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -184,11 +226,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java</url>
           <line>32</line>
           <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/service/ProjectService.java</url>
@@ -217,27 +254,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java</url>
-          <line>75</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java</url>
-          <line>76</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java</url>
-          <line>67</line>
+          <line>97</line>
           <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/anujl/collaborative_code_editor/controller/ProjectController.java</url>
-          <line>37</line>
-          <properties class="com.anujl.collaborative_code_editor.controller.ProjectController" method="get">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

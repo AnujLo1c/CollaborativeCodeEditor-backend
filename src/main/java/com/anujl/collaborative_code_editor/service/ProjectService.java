@@ -82,8 +82,8 @@ UserService userService;
     }
 
     //TODO: update needs to be modified
-    public String update(String id, ProjectDTO updated) {
-        Optional<ProjectEntity> optionalProject = projectRepo.findById(id);
+    public String update( ProjectDTO updated) {
+        Optional<ProjectEntity> optionalProject = projectRepo.findById(updated.getId());
         if (optionalProject.isPresent()) {
             ProjectEntity existingProject = optionalProject.get();
             existingProject.setName(updated.getName());
@@ -92,7 +92,7 @@ UserService userService;
             projectRepo.save(existingProject);
             return "Project updated successfully";
         } else {
-            throw new RuntimeException("Project not found with id: " + id);
+            throw new RuntimeException("Project not found with id: " + updated.getId());
         }
     }
 
